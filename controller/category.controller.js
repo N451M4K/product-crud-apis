@@ -31,7 +31,9 @@ exports.deleteCategory = async (req, res) => {
 
 exports.categoryList = async (req, res) => {
     try {
-        const categoryList = await CategoryMaster.findAll();
+        const categoryList = await CategoryMaster.findAll({
+            attributes: { exclude: ['createdAt', 'updatedAt'] },
+        });
         res.status(200).send({ succes: true, data: categoryList });
     } catch (err) {
         return res.status(500).send({ success: false, msg: 'something went wrong', error: err.message })

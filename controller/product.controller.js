@@ -19,6 +19,7 @@ exports.productList = async (req, res) => {
     try {
         let { count, rows } = await ProductMaster.findAndCountAll({
             attributes: { exclude: ['createdAt', 'updatedAt'] },
+            order: [['id', 'DESC'],],
             include: [{ model: CategoryMaster, attributes: { exclude: ['createdAt', 'updatedAt'] } }],
             offset: skip,
             limit: perpage,
