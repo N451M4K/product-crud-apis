@@ -47,7 +47,7 @@ table{
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
-  width: 50rem;
+  width: 45rem;
 } 
  td, th {
   border: 1px solid #dddddd;
@@ -59,7 +59,7 @@ table{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 50%;
+  width: 45rem;
   margin-left: auto;
   margin-right: auto;
   background-color: #dddddd;
@@ -67,4 +67,12 @@ table{
 
 .navbar{
   margin-top: 15px;
+}
+
+.form-container{
+  width: 45rem;
+  background-color: #61dafb;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }

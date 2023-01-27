@@ -58,15 +58,15 @@ const CreateProduct = () => {
     return (
         <div className='form-container'>
             <form className='form ' onSubmit={handleSubmit}>
-                <input type="text" value={productName} placeholder='Product Name' onChange={(event) => setProductName(event.target.value)} required />
-                <input type="text" value={productDescription} placeholder='Product Description' onChange={(event) => setProductDescription(event.target.value)} required />
-                <select className='select' value={categoryId} onChange={(event) => setCategoryId(event.target.value)} required>
+                <input type="text" className="form-control" value={productName} placeholder='Product Name' onChange={(event) => setProductName(event.target.value)} required />
+                <input type="text" className='form-control' value={productDescription} placeholder='Product Description' onChange={(event) => setProductDescription(event.target.value)} required />
+                <select className='form-control' value={categoryId} onChange={(event) => setCategoryId(event.target.value)} required>
                     <option defaultValue={''}>Select Category</option>
                     {category.map((element) => {
                         return <option value={element.id} key={element.id}>{element.categoryName}</option>
                     })}
                 </select>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary form-control">Submit</button>
             </form>
             {errorMessage && (
                 <p className="error"> {errorMessage} </p>
