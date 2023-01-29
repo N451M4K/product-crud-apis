@@ -2,7 +2,7 @@
 import './App.css';
 import Navbar from './Navbar';
 import Main from './Main';
-import ProductList from './ProductList';
+
 
 function App() {
 
@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <Navbar />
       <Main />
-      {/* <ProductList /> */}
     </div>
   );
 }

@@ -27,6 +27,16 @@ const ProductList = () => {
         fetchProducts(skipfromfirst);
     }
 
+    let handleDelete = async ( productId)=>{
+        
+        let response = await fetch(`http://localhost:5000/myapp/product/delete_product?productId=${productId}`, {
+          method: 'DELETE'
+        });
+        let deleted = await response.json();
+        console.log(deleted);
+        fetchProducts(0)
+    }
+    
     return (
         <div className='table-container'>
             <table className="table table-striped">
@@ -37,12 +47,14 @@ const ProductList = () => {
                         <th>Product Description</th>
                         <th>categoryId</th>
                         <th>Category Name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         products.map((element) => {
-                            return <Show data={element} key={element.id} />
+                            return <Show data={element} key={element.id} handleDelete={handleDelete} />
                         })
                     }
                 </tbody>
