@@ -39,16 +39,11 @@
 }
 
 
-/* .heading {
-  font-weight: 600;
-} */
+
 table{
-  margin: 30px;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  width: 45rem;
+  margin-top: 30px;
 } 
+
  td, th {
   border: 1px solid #dddddd;
   text-align: left;
@@ -71,8 +66,30 @@ table{
 
 .form-container{
   width: 45rem;
-  background-color: #61dafb;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+}
+
+.table-container{
+  width: 45rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav a{
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.error{
+  background-color: red;
+  padding: 10px;
+}
+.success{
+  background-color: green;
+  padding: 10px;
+}
+.msg{
+  margin: 20px;
 }

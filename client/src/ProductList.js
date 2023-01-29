@@ -28,8 +28,8 @@ const ProductList = () => {
     }
 
     return (
-        <div>
-            <table className="table-striped">
+        <div className='table-container'>
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th>productId</th>

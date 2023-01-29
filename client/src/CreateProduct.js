@@ -1,13 +1,14 @@
 // import { query } from 'express';
 import React from 'react'
 import { useState, useEffect } from 'react'
-
+import Message from './Message';
 const CreateProduct = () => {
     const [category, setCategory] = useState([]);
     const [productName, setProductName] = useState('');
     const [productDescription, setProductDescription] = useState('')
     const [categoryId, setCategoryId] = useState();
     const [errorMessage, setErrorMessage] = useState('');
+    const [isError, setIsError] = useState(true);
     //  console.log(category[0].id);
     useEffect(() => {
         fetchCategoryList();
@@ -36,9 +37,11 @@ const CreateProduct = () => {
                 });
                 let created = await response.json();
                 if (created.success === false) {
-                    setErrorMessage(created.error)
+                    setErrorMessage(created.msg)
+                    setIsError(true);
                 } else if (created.success === true) {
                     setErrorMessage("Form submitted successfully");
+                    setIsError(false)
                     setProductName('');
                     setProductDescription('');
                     setCategoryId('');
@@ -46,9 +49,11 @@ const CreateProduct = () => {
                 }
             } else {
                 setErrorMessage('Please Enter All the Field')
+                setIsError(true);
             }
         } catch (err) {
-            setErrorMessage(err)
+            setErrorMessage(err.message)
+            setIsError(true);
         }
 
     };
@@ -68,9 +73,7 @@ const CreateProduct = () => {
                 </select>
                 <button type="submit" className="btn btn-primary form-control">Submit</button>
             </form>
-            {errorMessage && (
-                <p className="error"> {errorMessage} </p>
-            )}
+            <Message message={errorMessage} isError={ isError} />
         </div>
     )
 }
