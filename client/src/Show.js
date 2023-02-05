@@ -13,7 +13,7 @@ const Show = (props) => {
       <td>{data.productDescription}</td>
       <td>{data.categoryId}</td>
       <td>{data.categoryMaster.categoryName}</td>
-      <td><button className='edit-btn'><i className="fa-solid fa-pen-to-square"></i></button></td>
+      <td><button className='edit-btn' data-toggle="modal" data-target="#exampleModal"><i className="fa-solid fa-pen-to-square"></i></button></td>
       <td><button onClick={handleClick} className='delete-btn'><i className="fa fa-trash" aria-hidden="true"></i></button></td>
     </tr>
   )

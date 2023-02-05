@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Show from './Show';
+import EditModal from './EditModal';
 
 let perpagerecords = 5;
 
@@ -73,6 +74,7 @@ const ProductList = () => {
                 breakLinkClassName={"page-link"}
                 activeClassName={"active"}
             />
+            <EditModal />
         </div >
     )
 }
