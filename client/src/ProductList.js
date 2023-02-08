@@ -9,7 +9,7 @@ let perpagerecords = 5;
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const [pageCount, setPageCount] = useState(1);
-
+    const [currentRow, setCurrentRow] = useState({});
     useEffect(() => {
         fetchProducts(0)
     }, []);
@@ -29,7 +29,6 @@ const ProductList = () => {
     }
 
     let handleDelete = async ( productId)=>{
-        
         let response = await fetch(`http://localhost:5000/myapp/product/delete_product?productId=${productId}`, {
           method: 'DELETE'
         });
@@ -37,7 +36,9 @@ const ProductList = () => {
         console.log(deleted);
         fetchProducts(0)
     }
-    
+    let showChoosenContent = function (obj) {
+        setCurrentRow(obj);
+    }
     return (
         <div className='table-container'>
             <table className="table table-striped">
@@ -55,7 +56,7 @@ const ProductList = () => {
                 <tbody>
                     {
                         products.map((element) => {
-                            return <Show data={element} key={element.id} handleDelete={handleDelete} />
+                            return <Show data={element} key={element.id} handleDelete={handleDelete} showChoosenContent={ showChoosenContent} />
                         })
                     }
                 </tbody>
@@ -74,7 +75,7 @@ const ProductList = () => {
                 breakLinkClassName={"page-link"}
                 activeClassName={"active"}
             />
-            <EditModal />
+            <EditModal currentRow={ currentRow } />
         </div >
     )
 }
