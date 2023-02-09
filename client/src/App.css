@@ -97,3 +97,12 @@ nav a{
 .dontrender {
   display: none;
 }
+
+.edit-btn {
+  color: green;
+  border: none;
+}
+.delete-btn {
+  color : red;
+  border: none
+}
